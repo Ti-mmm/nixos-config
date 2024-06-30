@@ -25,6 +25,7 @@
     dunst
     libnotify
     rofi-wayland
+    nvidia-vaapi-driver
   ];
   security.polkit.enable = true;
   xdg.portal.enable = true;

@@ -6,5 +6,6 @@
     ./nvidia.nix
     ./hyprland.nix
     ./steam.nix
+    ./sound.nix
   ];
 }

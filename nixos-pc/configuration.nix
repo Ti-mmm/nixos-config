@@ -5,19 +5,16 @@
 { config, pkgs, ... }:
 
 {
-  # Enable nix-command and flakes
+  # Enable nix-command and flakes; allow unfree packages
+  nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.package = pkgs.nixFlakes;
   
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
       ./fileSystems.nix
-      # Modules
-      ./../../nixosModules
-      #./nvidia.nix
-      #./hyprland.nix
-      #./steam.nix
+      ../nixosModules/default.nix
     ];
 
   # Bootloader.
@@ -85,18 +82,6 @@
   # Enable automatic login for the user.
   services.getty.autologinUser = "tim";
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # Pipewire audio
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-
   programs.firefox.enable = true;
   programs.git.enable = true;
   programs.zsh.enable = true;
@@ -106,11 +91,14 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
-  discord
+  # discord
   neofetch
   obsidian
   pcmanfm # File Manager
+  dolphin
   pavucontrol # Audio Controls (graphical)
+	webcord
+
   ani-cli
   htop
   obs-studio
@@ -122,6 +110,7 @@
   fonts.packages = with pkgs; [
     font-awesome
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    qt5ct
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
