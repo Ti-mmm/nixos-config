@@ -11,7 +11,7 @@
     "spacing": 5, // Gaps between modules (4px)
     "modules-left": [ "temperature", "cpu", "disk", "memory", "pulseaudio", "network" ],
     "modules-center": [ "hyprland/workspaces", "hyprland/submap" ],
-    "modules-right": [ "bluetooth", "clock#calendar", "clock#time", "custom/logout-menu" ],
+    "modules-right": [ "tray", "bluetooth", "clock#calendar", "clock#time", "custom/logout-menu" ],
 
     // Modules Config
     "hyprland/workspaces": {
@@ -58,7 +58,7 @@
     },
 
     "clock#calendar": {
-        "format": "{:%d.%m.%Y}",
+        "format": "{:%a, %d.%m.%Y}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "actions": {
             "on-click-right": "mode",
@@ -149,7 +149,7 @@
         "tooltip-format-disconnected": "<span color='#ed8796'>disconnected</span>",
         "format-ethernet": " {bandwidthUpBits}  {bandwidthDownBits}",
         "format-linked": "󰈀 {ifname} (No IP)",
-        "tooltip-format-ethernet":"Interface: {ifname}\nIP: {ipaddr}\nGW: {gwaddr}\nNetmask: {netmask}\nCIDR: {cidr}\n\n<span color='#a6da95'>{bandwidthUpBits}</span>\t<span color='#ee99a0'>{bandwidthDownBits}</span>\t<span color='#c6a0f6'>󰹹{bandwidthTotalBits}</span>",
+        "tooltip-format-ethernet":"Interface: {ifname}\nIP: {ipaddr}\nGW: {gwaddr}\nNetmask: {netmask}\nCIDR: {cidr}\n\n<span color='#c6a0f6'>󰹹{bandwidthTotalBits}</span>",
         "max-length": 35,
         //"on-click": "fish -c wifi_toggle",
         //"on-click-right": "wezterm start nmtui",
@@ -240,9 +240,9 @@
 
     "custom/logout-menu": {
         "return-type": "json",
-        "exec": "echo '{ \"text\":\"󰐥\", \"tooltip\": \"logout menu\" }'",
+        "exec": "echo '{ \"text\":\"󰐥\", \"tooltip\": \"shutdown\" }'",
         "interval": "once",
-        "on-click": "fish -c wlogout_uniqe",
+        "on-click": "wlogout",
     },
 
 // Bottom Bar Config
@@ -292,7 +292,7 @@
 
     "cpu": {
 	"interval": 1,
-        "format": " {usage}%",
+        "format": " {usage:02}%",
         "states": {
             "high": 90,
             "upper-medium": 70,
@@ -306,7 +306,7 @@
     
     "memory": {
 	"interval": 1,
-        "format": " {used}GiB",
+        "format": " {used:.2f}GiB",
         "tooltip-format": "Main: ({used} GiB/{total} GiB)({percentage}%), available {avail} GiB\nSwap: ({swapUsed} GiB/{swapTotal} GiB)({swapPercentage}%), available {swapAvail} GiB",
         "states": {
             "high": 90,

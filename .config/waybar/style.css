@@ -164,6 +164,8 @@ window#waybar {
 	color: @red;
 	background-color: #252733;
 	margin-right: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
   border-radius: 6px;
   padding-right: 10px;
   padding-left: 10px;
