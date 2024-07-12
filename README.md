@@ -1,6 +1,6 @@
-Note: Everything here is WiP. I am new to NixOS and am using this repo to learn and discover.
+Note: Everything here is WiP. I am new to NixOS, just exploring.
 
-**TODOs:**
+# TODOs:
 
 - [ ] migrate app settings to home-manager:
   - [x] hyprland
@@ -8,9 +8,10 @@ Note: Everything here is WiP. I am new to NixOS and am using this repo to learn 
   - [ ] waybar
   - [ ] zsh
   - [ ] git
-  - [ ] (discord / betterdiscord?)
-- [ ] write an actual README.md
-- [ ] setup proper documentation
+- [ ] customize webcord appearance using and import it to home-manager
+- [ ] import obsidian notes to repo, link them
+- [ ] modularize nixos-config (for multiple device setups)
+- [ ] ...
 
 ## Commands
 
@@ -20,7 +21,7 @@ Compile using:
 
 `sudo nixos-rebuild switch --flake .#nixos`
 
-## Installation
+## First-Time Setup
 
 On a new machine, use the commands from [cola-gang.industries](https://cola-gang.industries/nixos-for-the-confused-part-i):
 
@@ -32,6 +33,6 @@ On a new machine, use the commands from [cola-gang.industries](https://cola-gang
 
 `home-manager switch --flake .#username@hostname`
 
-# Credits
+# Credits / Inspiration
 
 - Waybar: [XNM1](https://github.com/XNM1/linux-nixos-hyprland-config-dotfiles?tab=readme-ov-file)
