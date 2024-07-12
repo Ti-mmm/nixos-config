@@ -82,10 +82,13 @@
   # Enable automatic login for the user.
   services.getty.autologinUser = "tim";
 
-  programs.firefox.enable = true;
-  programs.git.enable = true;
-  programs.zsh.enable = true;
+  programs = {
+    firefox.enable = true;
+    git.enable = true;
+    zsh.enable = true;
+  };
 
+  # Hardware-independent, universally installed pkgs
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -98,7 +101,6 @@
   dolphin
   pavucontrol # Audio Controls (graphical)
 	webcord
-
   ani-cli
   htop
   obs-studio
@@ -124,7 +126,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = false;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
