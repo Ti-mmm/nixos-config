@@ -15,6 +15,7 @@
 
   # Install required Software
   environment.systemPackages = with pkgs; [
+    qt5ct
     hyprpaper
     hypridle
     hyprlock
@@ -29,7 +30,7 @@
   ];
   security.polkit.enable = true;
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal ];
 
   #services.displayManager.sddm = {
     #enable = true;
