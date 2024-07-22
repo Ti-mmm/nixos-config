@@ -19,7 +19,7 @@
        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
        # > Our main nixos configuration file <
        modules = [ 
-         ./hosts/pc/configuration.nix
+         ./nixos-pc/configuration.nix
        ];
      };
    };
@@ -32,7 +32,7 @@
        extraSpecialArgs = { inherit inputs; }; # Pass flake inputs to our config
        # > Our main home-manager configuration file <
        modules = [ 
-           ./home-manager/home.nix 
+           ./home-manager/home.nix
            ];
      };
    };
