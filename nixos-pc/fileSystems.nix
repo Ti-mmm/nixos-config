@@ -13,10 +13,16 @@
     #options = [ "defaults" "users" "nofail" ];
   };
 
-  # nvmeOn1p1 - Disk 2
-  fileSystems."/media/nvme" = {
-    device = "/dev/disk/by-uuid/8e9be0ef-d1d4-40c1-9d66-9a71168dbc32";
+  # sdb5
+  fileSystems."/media/nixold" = {
+    device = "/dev/disk/by-uuid/70eeb2d9-f7d9-4512-9712-c0430256bf70";
     fsType = "ext4";
-    #options = [ "defaults" "users" "nofail" ];
   };
+
+  # nvmeOn1p1 - Disk 2
+  #fileSystems."/media/nvme" = {
+  #  device = "/dev/disk/by-uuid/8e9be0ef-d1d4-40c1-9d66-9a71168dbc32";
+  #  fsType = "ext4";
+    #options = [ "defaults" "users" "nofail" ];
+  #};
 }

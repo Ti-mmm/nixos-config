@@ -109,12 +109,9 @@ in
   pcmanfm # File Manager
   dolphin
   pavucontrol # Audio Controls (graphical)
-<<<<<<< HEAD
   webcord
   wlogout
-=======
-	webcord
->>>>>>> 155dc58fef1b603cd9fc2aaeac87fa2e4eae6254
+  webcord
   ani-cli
   htop
   obs-studio
