@@ -1,9 +1,9 @@
 { config, pkgs, ... }:
 {
-	programs.hyprlock.enable = true;
-	programs.hyprlock.package = pkgs.hyprlock;
-	services.hypridle.enable = true;
-	services.hypridle.package = pkgs.hypridle;
+	#programs.hyprlock.enable = true;
+	#programs.hyprlock.package = pkgs.hyprlock;
+	#services.hypridle.enable = true;
+	#services.hypridle.package = pkgs.hypridle;
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -16,28 +16,42 @@
     # Configure monitors
     monitor = [
       #",preferred,auto,auto
-      "DP-2, 2560x1440@165.00Hz, 1920x0, 1"
-      "DP-3, 1920x1080@143.61Hz, 0x0, 1"
+      "DP-1, 2560x1440@165.00Hz, 1920x0, 1"
+      "DP-2, 1920x1080@143.61Hz, 0x0, 1"
       "Unknown-1, disable"
     ];
 
     # Set used programs
     "$terminal" = "kitty";
-    "$fileManager" = "pcmanfm";
+    "$fileManager" = "dolphin";
     "$menu" = "rofi -show drun -show-icons";
+
+		# Blur for waybar
+		blurls = "waybar";
 
     # Autostart apps and processes at launch
     exec-once = [
       "dunst & waybar & hyprpaper"
       "[workspace 1 silent] $terminal"
       "[workspace 2 silent] firefox"
-      "hyprctl dispatch exec '[workspace 2] discord'"
+      "hyprctl dispatch exec '[workspace 2] webcord'"
     ];
 
     env = [
       "XCURSOR_SIZE,24"
       "HYPRCURSOR_SIZE,24"
       "WLR_DRM_NO_ATOMIC,1"
+      "QT_QPA_PLATFORM,wayland"
+      "QT_QPA_PLATFORMTHEME,qt5ct"
+      "NVD_BACKEND,direct"
+      "LIBVA_DRIVER_NAME,nvidia"
+      "XDG_SESSION_TYPE,wayland"
+      "XDG_CURRENT_DESKTOP,Hyprland"
+      "XDG_SESSION_DESKTOP,Hyprland"
+      "GBM_BACKEND,nvidia-drm"
+      "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+      "ELECTRON_OZONE_PLATFORM_HINT,auto"
+      "GTK_USE_PORTAL,1"
     ];
 
     general = {

@@ -221,7 +221,9 @@
     
     "custom/dunst": {
         "return-type": "json",
-        "exec": "fish -c dunst_pause",
+        "exec": "fisCan 
+          name
+          \;az  -c dunst_pause",
         "on-click": "dunstctl set-paused toggle",
         "restart-interval": 1,
     },
@@ -291,7 +293,7 @@
 
     "cpu": {
 	"interval": 1,
-        "format": "  {usage:02}%",
+        "format": " {usage:02}%",
         "states": {
             "high": 90,
             "upper-medium": 70,

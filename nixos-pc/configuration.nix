@@ -3,7 +3,9 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
+let
+  aagl-gtk-on-nix = import (builtins.fetchTarball "https://github.com/ezKEa/aagl-gtk-on-nix/archive/main.tar.gz");
+in
 {
   # Enable nix-command and flakes; allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -12,10 +14,17 @@
   
   imports =
     [
+      aagl-gtk-on-nix.module
       ./hardware-configuration.nix
       ./fileSystems.nix
       ../nixosModules/default.nix
     ];
+
+  nix.settings = {
+    substituters = [ "https://ezkea.cachix.org" ];
+    trusted-public-keys = [ "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI=" ];
+  };
+  programs.sleepy-launcher.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -97,11 +106,12 @@
   pcmanfm # File Manager
   dolphin
   pavucontrol # Audio Controls (graphical)
-	webcord
-
+  webcord
+  wlogout
   ani-cli
   htop
   obs-studio
+  rustup
   ];
 
   # Enable USB mounting support for pcmanfm
