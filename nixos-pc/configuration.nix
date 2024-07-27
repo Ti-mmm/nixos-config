@@ -2,29 +2,21 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
-let
-  aagl-gtk-on-nix = import (builtins.fetchTarball "https://github.com/ezKEa/aagl-gtk-on-nix/archive/main.tar.gz");
-in
-{
+{ config, pkgs, ... }: {
+
   # Enable nix-command and flakes; allow unfree packages
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.package = pkgs.nixFlakes;
-  
-  imports =
-    [
-      aagl-gtk-on-nix.module
-      ./hardware-configuration.nix
-      ./fileSystems.nix
-      ../nixosModules/default.nix
-    ];
 
-  nix.settings = {
-    substituters = [ "https://ezkea.cachix.org" ];
-    trusted-public-keys = [ "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI=" ];
-  };
-  programs.sleepy-launcher.enable = true;
+  imports = [
+    ./hardware-configuration.nix
+    ./fileSystems.nix
+    ../nixosModules/default.nix
+  ];
+
+  programs.thunar.enable = true;
+  programs.xfconf.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -84,7 +76,7 @@ in
     isNormalUser = true;
     description = "tim";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };
 
@@ -101,25 +93,24 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-  # discord
-  neofetch
-  obsidian
-  pcmanfm # File Manager
-  dolphin
-  pavucontrol # Audio Controls (graphical)
-  webcord
-  wlogout
-  webcord
-  ani-cli
-  htop
-  obs-studio
-  rustup
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
+    neofetch
+    obsidian
+    yazi # File Manager
+    pavucontrol # Audio Controls (graphical)
+    webcord
+    wlogout
+    webcord
+    ani-cli
+    obs-studio
+    gcc
+    rustup
   ];
 
   # Enable USB mounting support for pcmanfm
   services.gvfs.enable = true;
+  services.tumbler.enable = true;
 
   fonts.packages = with pkgs; [
     font-awesome

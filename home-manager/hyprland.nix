@@ -15,7 +15,7 @@
 
     # Configure monitors
     monitor = [
-      #",preferred,auto,auto
+      #",preferred,auto,auto"
       "DP-1, 2560x1440@165.00Hz, 1920x0, 1"
       "DP-2, 1920x1080@143.61Hz, 0x0, 1"
       "Unknown-1, disable"

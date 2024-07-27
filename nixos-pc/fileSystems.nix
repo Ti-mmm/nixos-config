@@ -14,10 +14,10 @@
   };
 
   # sdb5
-  fileSystems."/media/nixold" = {
-    device = "/dev/disk/by-uuid/70eeb2d9-f7d9-4512-9712-c0430256bf70";
-    fsType = "ext4";
-  };
+  #fileSystems."/media/nixold" = {
+  #  device = "/dev/disk/by-uuid/70eeb2d9-f7d9-4512-9712-c0430256bf70";
+  #  fsType = "ext4";
+  #};
 
   # nvmeOn1p1 - Disk 2
   #fileSystems."/media/nvme" = {

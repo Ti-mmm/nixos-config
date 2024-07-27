@@ -7,5 +7,6 @@
     ./hyprland.nix
     ./steam.nix
     ./sound.nix
+    ./theme.nix
   ];
 }
