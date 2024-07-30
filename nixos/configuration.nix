@@ -12,6 +12,7 @@
   imports = [
     ./hardware-configuration.nix
     ./fileSystems.nix
+    ./fonts.nix
     ../nixosModules/default.nix
   ];
 
@@ -111,12 +112,6 @@
   # Enable USB mounting support for pcmanfm
   services.gvfs.enable = true;
   services.tumbler.enable = true;
-
-  fonts.packages = with pkgs; [
-    font-awesome
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-    qt5ct
-  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

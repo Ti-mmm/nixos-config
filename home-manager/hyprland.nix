@@ -1,9 +1,8 @@
-{ config, pkgs, ... }:
-{
-	#programs.hyprlock.enable = true;
-	#programs.hyprlock.package = pkgs.hyprlock;
-	#services.hypridle.enable = true;
-	#services.hypridle.package = pkgs.hypridle;
+{ config, pkgs, ... }: {
+  #programs.hyprlock.enable = true;
+  #programs.hyprlock.package = pkgs.hyprlock;
+  #services.hypridle.enable = true;
+  #services.hypridle.package = pkgs.hypridle;
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -26,8 +25,8 @@
     "$fileManager" = "dolphin";
     "$menu" = "rofi -show drun -show-icons";
 
-		# Blur for waybar
-		blurls = "waybar";
+    # Blur for waybar
+    blurls = "waybar";
 
     # Autostart apps and processes at launch
     exec-once = [
@@ -92,9 +91,15 @@
         "workspaces,1,6,default"
       ];
     };
-    dwindle = { pseudotile = true; preserve_split = true; };
+    dwindle = {
+      pseudotile = true;
+      preserve_split = true;
+    };
     master.new_is_master = true;
-    misc = { force_default_wallpaper = 0; disable_hyprland_logo = true; };
+    misc = {
+      force_default_wallpaper = 0;
+      disable_hyprland_logo = true;
+    };
 
     # https://wiki.hyprland.org/Configuring/Variables/#Input
     input = {
@@ -139,15 +144,17 @@
       "$mainMod SHIFT,3,movetoworkspace,3"
       "$mainMod SHIFT,4,movetoworkspace,4"
     ];
-    bindm = [
-      "$mainMod, mouse:272, movewindow"
-      "$mainMod, mouse:273, resizewindow"
+    # Volume control, can be held down, limit is 150%
+    binde = [
+      ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+"
+      ", XF86AudioLowerVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%-"
     ];
+    # Mouse binds
+    bindm =
+      [ "$mainMod, mouse:272, movewindow" "$mainMod, mouse:273, resizewindow" ];
 
-    windowrulev2 = [
-      "suppressevent maximize, class:.*"
-      "immediate,class:^steam_app_\d+$"
-    ];
+    windowrulev2 =
+      [ "suppressevent maximize, class:.*" "immediate,class:^steam_app_d+$" ];
   };
 }
 # I hate my life
