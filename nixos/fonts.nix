@@ -2,7 +2,9 @@
 
 {
   fonts.packages = with pkgs; [
-    jetbains-mono
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    font-awesome
     nerd-font-patcher
-  ]
+    qt5ct
+  ];
 }

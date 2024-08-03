@@ -1,4 +1,4 @@
-{ pkgs, inputs, config, ...}:
+{ pkgs, inputs, config, ... }:
 
 {
   # Configured in home-manager/hyprland.nix
@@ -30,11 +30,12 @@
   ];
   security.polkit.enable = true;
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal ];
+  xdg.portal.extraPortals =
+    [ pkgs.xdg-desktop-portal-hyprland pkgs.xdg-desktop-portal-gtk ];
 
   #services.displayManager.sddm = {
-    #enable = true;
-    #wayland.enable = true;
-    # services.xserver.displayManager.sddm.theme = "where??";
+  #enable = true;
+  #wayland.enable = true;
+  # services.xserver.displayManager.sddm.theme = "where??";
   #};
 }

@@ -1,10 +1,16 @@
-{ config, pkgs, inputs, lib, ... }: {
+{ config, pkgs, inputs, lib, ... }:
+let
+  # Sleepy Launcher
+  aagl-gtk-on-nix = import (builtins.fetchTarball
+    "https://github.com/ezKEa/aagl-gtk-on-nix/archive/main.tar.gz");
+  gruvboxplus = import ./gruvbox-plus.nix { inherit pkgs; };
+in {
   imports = [ # App configurations
     ./hyprland.nix
-    #./hyprpaper.nix # not really needed
+    #./hyprpaper.nix
     ./kitty.nix
-    #./waybar.nix
     ./helix.nix
+    ./zsh.nix
   ];
 
   home.username = "tim";
@@ -15,9 +21,28 @@
     allowUnfreePredicate = (_: true);
   };
 
+  gtk.enable = true;
+  gtk.theme.package = pkgs.adw-gtk3;
+  gtk.theme.name = "adw-gtk3";
+  gtk.iconTheme.package = "gruvboxPlus";
+  gtk.iconTheme.name = "GruvboxPlus";
+
+  qt.enable = true;
+  qt.platformTheme.name = "gtk";
+  qt.style.name = "adwaita-dark";
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  home.packages = with pkgs; [ bat fzf ripgrep jq tree eza wl-clipboard ];
+  home.packages = with pkgs; [
+    bat
+    fzf
+    ripgrep
+    jq
+    tree
+    eza
+    wl-clipboard
+    aagl-gtk-on-nix.sleepy-launcher
+  ];
 
   home.sessionVariables = { EDITOR = "hx"; };
   home.shellAliases = {
@@ -25,18 +50,4 @@
     ls = "exa";
     cat = "bat";
   };
-
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-  };
-
-  programs.zsh.oh-my-zsh = {
-    enable = true;
-    plugins = [ "git" "python" "docker" "fzf" ];
-    theme = "dpoggi";
-  };
-
 }

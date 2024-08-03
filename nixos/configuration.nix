@@ -7,6 +7,7 @@
   # Enable nix-command and flakes; allow unfree packages
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.trusted-users = [ "root" "tim" ];
   nix.package = pkgs.nixFlakes;
 
   imports = [
@@ -131,6 +132,22 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+  networking.extraHosts = ''
+    0.0.0.0 overseauspider.yuanshen.com
+    0.0.0.0 log-upload-os.hoyoverse.com
+
+    0.0.0.0 log-upload.mihoyo.com
+    0.0.0.0 uspider.yuanshen.com
+    0.0.0.0 sg-public-data-api.hoyoverse.com
+
+    0.0.0.0 prd-lender.cdp.internal.unity3d.com
+    0.0.0.0 thind-prd-knob.data.ie.unity3d.com
+    0.0.0.0 thind-gke-usc.prd.data.corp.unity3d.com
+    0.0.0.0 cdp.cloud.unity3d.com
+    0.0.0.0 remote-config-proxy-prd.uca.cloud.unity3d.com
+
+    0.0.0.0 pc.crashsight.wetest.net
+  '';
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

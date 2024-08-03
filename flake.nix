@@ -11,30 +11,29 @@
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
-   # NixOS configuration entrypoint
-   # Available through 'nixos-rebuild --flake .#your-hostname'
+    # NixOS configuration entrypoint
+    # Available through 'nixos-rebuild --flake .#your-hostname'
 
-   nixosConfigurations = {
-     nixos = nixpkgs.lib.nixosSystem {
-       specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-       # > Our main nixos configuration file <
-       modules = [ 
-         ./nixos-pc/configuration.nix
-       ];
-     };
-   };
+    nixosConfigurations = {
+      nixos = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
+        # > Our main nixos configuration file <
+        modules = [ ./nixos/configuration.nix ];
+      };
+    };
 
-   # home-manager configuration entrypoint
-   # Available through 'home-manager --flake .#your-username@your-hostname'
-   homeConfigurations = {
-     "tim@nixos" = home-manager.lib.homeManagerConfiguration {
-       pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-       extraSpecialArgs = { inherit inputs; }; # Pass flake inputs to our config
-       # > Our main home-manager configuration file <
-       modules = [ 
-           ./home-manager/home.nix
-           ];
-     };
-   };
- };
+    # home-manager configuration entrypoint
+    # Available through 'home-manager --flake .#your-username@your-hostname'
+    homeConfigurations = {
+      "tim@nixos" = home-manager.lib.homeManagerConfiguration {
+        pkgs =
+          nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {
+          inherit inputs;
+        }; # Pass flake inputs to our config
+        # > Our main home-manager configuration file <
+        modules = [ ./home-manager/home.nix ];
+      };
+    };
+  };
 }
