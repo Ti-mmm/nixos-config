@@ -10,12 +10,7 @@
   nix.settings.trusted-users = [ "root" "tim" ];
   nix.package = pkgs.nixFlakes;
 
-  imports = [
-    ./hardware-configuration.nix
-    ./fileSystems.nix
-    ./fonts.nix
-    ../nixosModules/default.nix
-  ];
+  imports = [ ./hardware-configuration.nix ../nixosModules/default.nix ];
 
   programs.thunar.enable = true;
   programs.xfconf.enable = true;
