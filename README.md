@@ -35,6 +35,8 @@ nix shell nixpkgs#home-manager
 sudo nixos-rebuild boot --flake .#tim
 home-manager switch --flake .#tim@nixos```
 
+
+
 Download size is around 3GiB
 
 # Credits / Inspiration
