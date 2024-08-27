@@ -25,13 +25,15 @@ Compile using:
 
 On a new machine, use the commands from [cola-gang.industries](https://cola-gang.industries/nixos-for-the-confused-part-i):
 
-`export NIX_CONFIG="experimental-features = nix-command flakes"`
+**PASTE YOUR /etc/nixos/hardware-configuration.nix beforehand!!**
 
-`nix shell nixpkgs#home-manager`
+```bash
+export NIX_CONFIG="experimental-features = nix-command flakes"
+nix shell nixpkgs#home-manager
+sudo nixos-rebuild boot --flake .#hostname
+home-manager switch --flake .#username@hostname```
 
-`sudo nixos-rebuild switch --flake .#hostname`
-
-`home-manager switch --flake .#username@hostname`
+Download size is around 3GiB
 
 # Credits / Inspiration
 
