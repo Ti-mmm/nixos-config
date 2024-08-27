@@ -33,9 +33,8 @@ You may need to change the username and hostname depending on your NixOS install
 export NIX_CONFIG="experimental-features = nix-command flakes"
 nix shell nixpkgs#home-manager
 sudo nixos-rebuild boot --flake .#tim
-home-manager switch --flake .#tim@nixos```
-
-
+home-manager switch --flake .#tim@nixos
+```
 
 Download size is around 3GiB
 
