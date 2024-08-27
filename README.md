@@ -27,11 +27,13 @@ On a new machine, use the commands from [cola-gang.industries](https://cola-gang
 
 **PASTE YOUR /etc/nixos/hardware-configuration.nix beforehand!!**
 
+You may need to change the username and hostname depending on your NixOS installation
+
 ```bash
 export NIX_CONFIG="experimental-features = nix-command flakes"
 nix shell nixpkgs#home-manager
-sudo nixos-rebuild boot --flake .#hostname
-home-manager switch --flake .#username@hostname```
+sudo nixos-rebuild boot --flake .#tim
+home-manager switch --flake .#tim@nixos```
 
 Download size is around 3GiB
 
