@@ -1,51 +1,20 @@
 @import "macchiato.css";
-/*base background color*/
-@define-color bg_main rgba(25, 25, 25, 0.65);
-@define-color bg_main_tooltip rgba(0, 0, 0, 0.7);
-
-
-/*base background color of selections */
-@define-color bg_hover rgba(200, 200, 200, 0.3);
-/*base background color of active elements */
-@define-color bg_active rgba(100, 100, 100, 0.5);
-
-/*base border color*/
-@define-color border_main rgba(255, 255, 255, 0.2);
-
-/*text color for entries, views and content in general */
-@define-color content_main white;
-/*text color for entries that are unselected */
-@define-color content_inactive rgba(255, 255, 255, 0.25);
 
 * {
-  text-shadow: none;
-  box-shadow:  none;
-  border:      none;
+	/*font-family: JetBrainsMono Nerd Font;*/Cam
+	'
+	font-size: 15px;
+  border: none;
   border-radius: 0;
-	font-family: noto fonts;
-	font-weight: 500;
-	font-size: 14px;
   min-height: 0;
 }
 
 window#waybar {
-  background-color: rgba(20, 21, 30, 0.8);
-  background: rgba(20, 21, 30, 0.4);
-  border-bottom: 1.5px solid @teal;
+  background-color: rgba(26, 27, 38, 0.1);
   color: #ffffff;
 }
-tooltip {
-  background: rgba(20, 21, 30, 0.75);
-  border-radius: 5px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: @surface0;
-}
-tooltip label{
-  color: @content_main;
-}
 
-#window { color: @text; }
+#window { color: #64727d; }
 
 #workspaces {
   margin-left: 10px;
@@ -65,12 +34,20 @@ tooltip label{
   color: @green;
 }
 
-#clock {
-  margin-top: 2px;
-  margin-bottom: 2px;
-  padding-right: 5px;
-  padding-left:  5px;
-  	transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+#clock.time {
+  color: @flamingo;
+}
+
+#clock.week {
+  color: @sapphire;
+}
+
+#clock.month {
+  color: @sapphire;
+}
+
+#clock.calendar {
+  color: @mauve;
 }
 
 #bluetooth.disabled {
@@ -79,10 +56,6 @@ tooltip label{
 
 #bluetooth.on {
   color: @blue;
-}
-
-#language {
-  color: @maroon
 }
 
 #bluetooth.connected {
@@ -177,57 +150,51 @@ tooltip label{
   border-radius: 10px;
 }
 
-#tray{
-  margin-left: 5px;
-  margin-right: 5px;
+#tray {
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
-#tray > .passive {
-	border-bottom: none;
-}
-#tray > .active {
-	border-bottom: 2.5px solid @teal;
-}
-#tray > .needs-attention {
-	border-bottom: 2px solid @warning_color;
-}
-#tray > widget {
-	transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-#tray > widget:hover {
-	background: transparent;
+
+#tray>.needs-attention {
+  background-color: alpha(@maroon, 0.7);
+  border-radius: 10px;
 }
 
 #custom-logout-menu {
-	color: @yellow;
-	/*background-color: #252733;*/
+	color: @red;
+	background-color: #252733;
+	margin-right: 10px;
 	margin-top: 5px;
 	margin-bottom: 5px;
-  padding-right: 15px;
-  padding-left: 3px;
+  border-radius: 6px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 #pulseaudio,
+#clock,
 #bluetooth,
-#language,
 #network,
 #cpu,
 #temperature,
 #disk,
 #memory {
-  /*background-color: #252733;*/
-  /*border-radius: 7px;*/
+  background-color: #252733;
+  border-radius: 7px;
   margin-right: 2px;
   margin-left: 2px;
   margin-top: 5px;
   margin-bottom: 5px;
   padding-top: 3px;
   padding-bottom: 3px;
-  padding-right: 4px;
-  padding-left: 4px;
+  padding-right: 6px;
+  padding-left: 6px;
 }
 
 #cpu { color: @red; }
 #temperature { margin-left: 10px; color: @blue; }
-#disk { color: @green; margin-left: 10px; }
+#disk { color: @green; }
 #memory { color: @peach; }
-#pulseaudio { color: @green; }
+#pulseaudio { color: @yellow; }
+
