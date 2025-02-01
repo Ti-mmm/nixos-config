@@ -25,15 +25,11 @@
 
     # Autostart apps and processes at launch
     exec-once = [
-      #"hyprctl dispatch exec '[workspace 2] vesktop'"
-      #"hyprctl dispatch exec '[workspace 3] steam'"
-      #"dunst"
       "waybar"
-      "sleep 1 && vesktop"
+      "vesktop"
       "swww-daemon"
       "fcitx5 -d -r"
       "dunst"
-      "systemctl --user start hyprpolkitagent"
 
       "[workspace 3 silent] steam"
       "[workspace 1 silent] firefox"
@@ -42,11 +38,11 @@
     env = [
       "XCURSOR_SIZE,24"
       "XCURSOR_THEME,Bibata-Modern-Ice"
-      #"HYPRCURSOR_SIZE,24"
-      #"HYPRCURSOR_THEME,Bibata-Modern-Ice"
+      "HYPRCURSOR_SIZE,24"
+      "HYPRCURSOR_THEME,Bibata-Modern-Ice"
       #  "WLR_DRM_NO_ATOMIC,1"
-      "QT_QPA_PLATFORM,wayland"
-      "QT_QPA_PLATFORMTHEME,qt5ct"
+      #"QT_QPA_PLATFORM,wayland"
+      #"QT_QPA_PLATFORMTHEME,qt5ct"
 
       # Nvidia envs
       #"LIBVA_DRIVER_NAME,nvidia"
@@ -62,8 +58,8 @@
 
       # Fcitx5 envs
       #"GTK_IM_MODULE='wayland'"
-      "QT_IM_MODULE='wayland;fcitx;ibus'"
-      "XMODIFIERS='@im=fcitx'"
+      #"QT_IM_MODULE='wayland;fcitx;ibus'"
+      #"XMODIFIERS='@im=fcitx'"
     ];
 
     general = {
@@ -121,7 +117,7 @@
       kb_layout = "us";
       kb_variant = "intl";
       kb_model = "";
-      kb_options = "grp:win_space_toggle";
+      kb_options = ""; # for multiple layouts: grp:win_space_toggle
       kb_rules = "";
       repeat_delay = "250";
 
@@ -179,20 +175,6 @@
       [ "$mainMod, mouse:272, movewindow" "$mainMod, mouse:273, resizewindow" ];
 
     windowrule = [ "pseudo, fcitx" ];
-
-    #windowrulev2 =
-    #  [ "suppressevent maximize, class:.*" "immediate,class:^steam_app_d+$" ];
   };
-
-  # Hyprpaper configuration
-  #home.file.".config/hypr/hyprpaper.conf".text = ''
-  # Yes!
-  #  preload = ~/nixos-config/papers/flowers.png
-  #  preload = ~/nixos-config/papers/flowers.png
-
-  #  wallpaper = DP-2,~/nixos-config/papers/flowers.png
-  #  wallpaper = DP-3,~/nixos-config/papers/flowers.png
-  #'';
-
 }
 # I hate my life
