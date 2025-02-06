@@ -30,16 +30,15 @@
       "swww-daemon"
       "fcitx5 -d -r"
       "dunst"
-
-      "[workspace 3 silent] steam"
-      "[workspace 1 silent] firefox"
+      "steam"
+      "firefox"
     ];
 
     env = [
       "XCURSOR_SIZE,24"
       "XCURSOR_THEME,Bibata-Modern-Ice"
-      "HYPRCURSOR_SIZE,24"
-      "HYPRCURSOR_THEME,Bibata-Modern-Ice"
+      #"HYPRCURSOR_SIZE,24"
+      #"HYPRCURSOR_THEME,Bibata-Modern-Ice"
       #  "WLR_DRM_NO_ATOMIC,1"
       #"QT_QPA_PLATFORM,wayland"
       #"QT_QPA_PLATFORMTHEME,qt5ct"
@@ -63,8 +62,8 @@
     ];
 
     general = {
-      gaps_in = 5;
-      gaps_out = 20;
+      gaps_in = 3;
+      gaps_out = 10;
       border_size = 2;
       "col.active_border" = "rgba(24abffee) rgba(8863ffee) 45deg";
       "col.inactive_border" = "rgba(595959aa)";

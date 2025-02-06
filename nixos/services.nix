@@ -1,7 +1,7 @@
 {
   services = {
     # Enable OpenSSH daemon
-    openssh.enable = true;
+    # openssh.enable = true;
 
     # Enable Printer Support
     printing.enable = true;
