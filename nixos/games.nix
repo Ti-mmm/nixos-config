@@ -5,5 +5,5 @@
   programs.steam.gamescopeSession.enable = true;
   programs.gamemode.enable = true;
 
-  environment.systemPackages = with pkgs; [ mangohud wine bottles lutris ];
+  environment.systemPackages = with pkgs; [ mangohud wine bottles lutris steamcmd ];
 }

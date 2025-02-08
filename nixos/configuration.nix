@@ -173,6 +173,7 @@
     prismlauncher
     libreoffice-qt
     # solaar # Mouse - doesn't work with Logitech
+    noip
     qmk # crkbd
     blueberry # GUI bluetooth
     htop

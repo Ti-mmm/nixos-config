@@ -9,10 +9,10 @@
     ./editor/helix.nix
     ./zsh.nix
     ./rofi.nix
-    #./theme.nix
+    ./theme.nix
     ./yazi/default.nix
     ./git.nix
-    #./waybar.nix # Still need to set waybar.settings
+    ./waybar.nix # Still need to set waybar.settings
   ];
 
   home.username = "tim";
