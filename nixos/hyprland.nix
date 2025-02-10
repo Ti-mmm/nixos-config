@@ -20,6 +20,7 @@
     rofi-wayland
     rofi-emoji-wayland
     hyprpolkitagent
+    hyprshot
     wl-clipboard
     wtype
   ];

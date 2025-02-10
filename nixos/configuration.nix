@@ -64,7 +64,6 @@
       "-L" # print build logs
     ];
     dates = "weekly";
-    randomizedDelaySec = "45min";
   };
 
   # Enable networking
@@ -130,6 +129,7 @@
     # packages = with pkgs; [ kate ];
     shell = pkgs.zsh;
   };
+  security.sudo.wheelNeedsPassword = false;
 
   # Install programs
   programs = {
@@ -166,7 +166,6 @@
     rustup
     rustc
     docker
-    python310
     gwe
     anki
     openjdk
@@ -188,8 +187,6 @@
     udisks2
     libsForQt5.qt5ct
     qt6ct
- 
-    #inputs.zen-browser.packages."${system}".default
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

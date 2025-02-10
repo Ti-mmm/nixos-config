@@ -17,9 +17,9 @@
     
     
     # Run deepseek-r1 locally
-    ollama.enable = true;
-    ollama.acceleration = "cuda";
-    open-webui.enable = true;
+    #ollama.enable = true;
+    #ollama.acceleration = "cuda";
+    #open-webui.enable = true;
         
   };
 }

@@ -41,7 +41,11 @@
       #"HYPRCURSOR_THEME,Bibata-Modern-Ice"
       #  "WLR_DRM_NO_ATOMIC,1"
       #"QT_QPA_PLATFORM,wayland"
-      #"QT_QPA_PLATFORMTHEME,qt5ct"
+      "QT_QPA_PLATFORMTHEME,qt6ct"
+
+      # Use iGPU for Hyprland rendering and Nvidia card for games
+      #"AQ_DRM_DEVICES,/dev/dri/card0:/dev/dri/card1"
+      
 
       # Nvidia envs
       #"LIBVA_DRIVER_NAME,nvidia"
@@ -51,7 +55,7 @@
       # Nvidia-vaapi-driver
       #"NVD_BACKEND,direct"
 
-      #  "XDG_CURRENT_DESKTOP,Hyprland"
+      "XDG_CURRENT_DESKTOP,Hyprland"
       #  "XDG_SESSION_DESKTOP,Hyprland"
       #  "GTK_USE_PORTAL,1"
 
@@ -91,7 +95,10 @@
     animations = {
       enabled = true;
       #bezier = "testBezier, 0.08, 1.3, 0.6, 1";
-      bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+      bezier = [
+        "myBezier, 0.05, 0.9, 0.1, 1.05"
+        "easeOutCubic, 0.33, 1, 0.68, 1"
+      ]; 
       animation = [
         "windows,1,7,myBezier"
         "windowsOut,1,7,default,popin 80%"
@@ -140,6 +147,7 @@
       "$mainMod,P,pseudo,"
       "$mainMod,J,togglesplit,"
       "$mainMod,F,fullscreen,"
+      "$mainMod,S,exec,hyprshot -m region"
 
       # Move to other windows
       "$mainMod,left, movefocus, l"

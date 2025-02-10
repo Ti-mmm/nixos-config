@@ -52,14 +52,14 @@
         name = "markdown";
         language-servers = [ "dprint" "markdown-oxide" ];
       }
-      {
-        name = "python";
-        language-servers = [ "basedpyright" ];
-        formatter = {
-          command = lib.getExe pkgs.black;
-          args = [ "-" "--quiet" "--line-length 100" ];
-        };
-      }
+      #{
+      #  name = "python";
+      #  language-servers = [ "basedpyright" ];
+      #  formatter = {
+      #    command = lib.getExe pkgs.black;
+      #    args = [ "-" "--quiet" "--line-length 100" ];
+      #  };
+      #}
       {
         name = "typescript";
         auto-format = true;
@@ -68,7 +68,7 @@
     ] ++ prettierLangs langs;
 
     language-server = {
-      basedpyright.command = "${pkgs.basedpyright}/bin/basedpyright-langserver";
+      #basedpyright.command = "${pkgs.basedpyright}/bin/basedpyright-langserver";
 
       bash-language-server = {
         command = lib.getExe pkgs.bash-language-server;

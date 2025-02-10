@@ -8,7 +8,7 @@
 
   programs.zsh.oh-my-zsh = {
     enable = true;
-    plugins = [ "git" "python" "docker" "fzf" ];
+    plugins = [ "git" ]; # "python" "docker" "fzf"
     theme = "dpoggi";
   };
 }
