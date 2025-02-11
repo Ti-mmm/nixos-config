@@ -13,6 +13,7 @@
     ./yazi/default.nix
     ./git.nix
     ./waybar.nix # Still need to set waybar.settings
+    ./btop.nix
   ];
 
   home.username = "tim";

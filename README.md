@@ -3,7 +3,8 @@ Note: Everything here is WiP. I am new to NixOS, just exploring.
 # TODOs:
 
 - [ ] rice everything:
-  - [ ] catppuccin-mocha-mauve theme
+  - [x] catppuccin-mocha-mauve theme
+  - [x] btop
   - [ ] qt (catppuccin + lightly)
   - [ ] transparency: kitty, vesktop, firefox
   - [ ] hyprland: make inactive windows slightly transparent

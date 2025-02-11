@@ -23,6 +23,7 @@ in {
     rofi.enable = false;
     hyprland.enable = false;
     waybar.enable = false;
+    btop.enable = false;
     
   };
 
