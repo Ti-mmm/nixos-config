@@ -5,7 +5,7 @@
   
   imports = [ # App configurations
     ./hyprland.nix
-    ./kitty.nix
+    ./kitty/kitty.nix
     ./editor/helix.nix
     ./zsh.nix
     ./rofi.nix
@@ -28,12 +28,6 @@
   home.sessionVariables = { EDITOR = "hx"; };
   home.shellAliases = { yz = "yazi"; };
 
-  home.pointerCursor = {
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Ice";
-    size = 24;
-    gtk.enable = true;
-  };
 
 
 }

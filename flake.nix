@@ -12,6 +12,8 @@
 
     hardware.url = "github:nixos/nixos-hardware";
 
+    catppuccin.url = "github:catppuccin/nix";
+
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.2";
       # Optional but recommended to limit the size of your system closure.
@@ -21,7 +23,7 @@
     #zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
 
-  outputs = { self, nixpkgs, home-manager, lanzaboote, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, catppuccin, lanzaboote, ... }@inputs: {
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
@@ -61,7 +63,10 @@
           inherit inputs;
         }; # Pass flake inputs to our config
         # > Our main home-manager configuration file <
-        modules = [ ./home-manager/home.nix ];
+        modules = [
+          ./home-manager/home.nix
+          catppuccin.homeManagerModules.catppuccin
+        ];
       };
     };
   };

@@ -10,7 +10,7 @@
     ];
 
     settings = {
-      theme = "catppuccin_macchiato";
+      #theme = "catppuccin_mocha";
       editor = {
         color-modes = true;
         completion-trigger-len = 1;

@@ -1,36 +1,70 @@
-{ config, pkgs, inputs, lib, ... }: {
-  gtk = {
-    enable = true;
-          theme = {
-        #name = "Dracula";
-        #name = "Catppuccin-Mocha-Compact-Blue-Dark";
-        name = "Orchis-Dark-Compact";
-        #package = pkgs.dracula-theme;
-        # package = pkgs.catppuccin-gtk.override {
-        #   accents = ["blue"];
-        #   size = "compact";
-        #   variant = "mocha";
-        # };
-        package = pkgs.orchis-theme;
-    };
-    #theme.name = "adw-gtk3";
-    #theme.package = pkgs.adw-gtk3;
-    
-    #iconTheme.name = "Flat-Remix-Cyan-Dark";
-    #iconTheme.package = pkgs.flat-remix-icon-theme;
+{ config, pkgs, inputs, lib, ... }:
+let
+  font = {
+    name = "JetbrainsMono Nerd Font";
+    package = pkgs.nerd-fonts.jetbrains-mono;
+  };
+  cursorTheme = {
+    name = "Bibata-Modern-Ice";
+    size = 24;
+    package = pkgs.bibata-cursors;
+  };
+  #iconTheme = {
+  #  name = "MoreWaita";
+  #  package = pkgs.morewaita-icon-theme.overrideAttrs { src = inputs.morewaita; };
+  #};
+in {
 
-    cursorTheme = {
-      size = 24;
-      name = "Bibata-Modern-Ice";
+  catppuccin = {
+    enable = true; # Use on any and all
+    flavor = "mocha";
+    accent = "mauve";
+
+    rofi.enable = false;
+    hyprland.enable = false;
+    waybar.enable = false;
+    
+  };
+
+  home = {
+    # Catppuccin mocha mauve themes
+    file.".config/vesktop/themes/mocha-mauve.css".source = ./themes/vesktop.css;
+
+
+
+  
+    packages = with pkgs; [
+      cantarell-fonts
+      font-awesome
+      font.package
+      cursorTheme.package
+      adwaita-icon-theme
+      papirus-icon-theme
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.ubuntu-mono
+      
+    ];
+
+    sessionVariables = {
+      XCURSOR_THEME = cursorTheme.name;
+      XCURSOR_SIZE  = "${toString cursorTheme.size}";
     };
-    cursorTheme.package = pkgs.bibata-cursors;
+    pointerCursor =
+      cursorTheme
+      // { gtk.enable = true; };
+
   };
   
+  fonts.fontconfig.enable = true;
+
+  gtk.enable = true;
+
   qt = {
     enable = true;
+    platformTheme.name = "kvantum";
+    style.name = "kvantum";
+    #style.package = pkgs.catppuccin-qt5ct;
     
-    platformTheme.name = "gtk2";
-    style.name = "adwaita-dark";
-    style.package = pkgs.adwaita-qt;
   };
+
 }

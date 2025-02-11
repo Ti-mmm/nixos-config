@@ -10,5 +10,6 @@
     enable = true;
     plugins = [ "git" ]; # "python" "docker" "fzf"
     theme = "dpoggi";
+    # other themes: agnoster dpoggi
   };
 }

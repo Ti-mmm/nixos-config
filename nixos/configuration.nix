@@ -42,6 +42,7 @@
       trusted-users = [ "root" "tim" ];
       # Enable nix-command and flakes
       experimental-features = [ "nix-command" "flakes" ];
+      warn-dirty = false;
       # optimising store may lead to much longer compile times
       auto-optimise-store = true;
     };
@@ -94,8 +95,10 @@
   };
 
   # Enable Bluetooth
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = false;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = false;
+  };
   # Enable Sound
   security.rtkit.enable = true;
   services.pipewire = {
