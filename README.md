@@ -2,14 +2,14 @@ Note: Everything here is WiP. I am new to NixOS, just exploring.
 
 # TODOs:
 
-- [ ] migrate app settings to home-manager:
-  - [x] hyprland
-  - [x] kitty
-  - [ ] waybar
-  - [ ] zsh
-  - [ ] git
-- [ ] customize webcord appearance using and import it to home-manager
-- [ ] import obsidian notes to repo, link them
+- [ ] rice everything:
+  - [ ] catppuccin-mocha-mauve theme
+  - [ ] qt (catppuccin + lightly)
+  - [ ] transparency: kitty, vesktop, firefox
+  - [ ] hyprland: make inactive windows slightly transparent
+  - [ ] (optional) alternative hyprland animations
+- [ ] switch to grub
+- [ ] firefox settings in home-manager
 - [ ] modularize nixos-config (for multiple device setups)
 - [ ] ...
 
@@ -32,11 +32,9 @@ You may need to change the username and hostname depending on your NixOS install
 ```bash
 export NIX_CONFIG="experimental-features = nix-command flakes"
 nix shell nixpkgs#home-manager
-sudo nixos-rebuild boot --flake .#tim
+sudo nixos-rebuild boot --flake .#nixos
 home-manager switch --flake .#tim@nixos
 ```
-
-Download size is around 3GiB
 
 # Credits / Inspiration
 
