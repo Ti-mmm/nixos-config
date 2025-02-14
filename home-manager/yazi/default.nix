@@ -20,12 +20,6 @@
         max_height = 900;
         cache_dir = "${config.xdg.cacheHome}";
       };
-
-      flavors = {
-        use = ./catppuccin-macchiato.yazi;
-        # Starting with 0.4.0
-        dark = ./catppuccin-macchiato.yazi;
-      };
     };
   };
 }

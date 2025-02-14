@@ -18,7 +18,7 @@
     wayland_titlebar_color = "background";
     enable_audio_bell = false;
     confirm_os_window_close = 0;
-    background_opacity = "0.30";
+    background_opacity = "0.5";
     };
   };
  

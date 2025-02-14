@@ -1,16 +1,15 @@
-@import "macchiato.css";
+@import "mocha.css";
 /*base background color*/
-@define-color bg_main rgba(25, 25, 25, 0.65);
-@define-color bg_main_tooltip rgba(0, 0, 0, 0.7);
-
+@define-color bg_main rgba(25, 25, 25, 0.5);
+@define-color bg_main_tooltip rgba(0, 0, 0, 0.5);
 
 /*base background color of selections */
-@define-color bg_hover rgba(200, 200, 200, 0.3);
+@define-color bg_hover rgba(200, 200, 200, 0.5);
 /*base background color of active elements */
 @define-color bg_active rgba(100, 100, 100, 0.5);
 
 /*base border color*/
-@define-color border_main rgba(255, 255, 255, 0.2);
+@define-color border_main rgba(255, 255, 255, 0.5);
 
 /*text color for entries, views and content in general */
 @define-color content_main white;
@@ -19,37 +18,39 @@
 
 * {
   text-shadow: none;
-  box-shadow:  none;
-  border:      none;
+  box-shadow: none;
+  border: none;
   border-radius: 0;
-	font-family: noto fonts;
-	font-weight: 500;
-	font-size: 14px;
+  font-family: noto fonts;
+  font-weight: 500;
+  font-size: 14px;
   min-height: 0;
 }
 
 window#waybar {
-  background-color: rgba(20, 21, 30, 0.8);
-  background: rgba(20, 21, 30, 0.4);
-  border-bottom: 1.5px solid @teal;
+  background-color: rgba(20, 21, 30, 0.5);
+  background: rgba(20, 21, 30, 0.5);
+  border-bottom: 1.5px solid @mauve;
   color: #ffffff;
 }
 tooltip {
-  background: rgba(20, 21, 30, 0.75);
+  background: rgba(20, 21, 30, 0.5);
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   border-color: @surface0;
 }
-tooltip label{
+tooltip label {
   color: @content_main;
 }
 
-#window { color: @text; }
+#window {
+  color: @text;
+}
 
 #workspaces {
   margin-left: 10px;
-  margin-right: 10px
+  margin-right: 10px;
 }
 
 #workspaces button.active {
@@ -69,8 +70,8 @@ tooltip label{
   margin-top: 2px;
   margin-bottom: 2px;
   padding-right: 5px;
-  padding-left:  5px;
-  	transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+  padding-left: 5px;
+  transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 #bluetooth.disabled {
@@ -82,7 +83,7 @@ tooltip label{
 }
 
 #language {
-  color: @maroon
+  color: @maroon;
 }
 
 #bluetooth.connected {
@@ -102,7 +103,7 @@ tooltip label{
 }
 
 #network.ethernet {
-	color: @teal;
+  color: @teal;
 }
 
 #idle_inhibitor {
@@ -177,31 +178,31 @@ tooltip label{
   border-radius: 10px;
 }
 
-#tray{
+#tray {
   margin-left: 5px;
   margin-right: 5px;
 }
 #tray > .passive {
-	border-bottom: none;
+  border-bottom: none;
 }
 #tray > .active {
-	border-bottom: 2.5px solid @teal;
+  border-bottom: 2.5px solid @mauve;
 }
 #tray > .needs-attention {
-	border-bottom: 2px solid @warning_color;
+  border-bottom: 2px solid @warning_color;
 }
 #tray > widget {
-	transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 #tray > widget:hover {
-	background: transparent;
+  background: transparent;
 }
 
 #custom-logout-menu {
-	color: @yellow;
-	/*background-color: #252733;*/
-	margin-top: 5px;
-	margin-bottom: 5px;
+  color: @yellow;
+  /*background-color: #252733;*/
+  margin-top: 5px;
+  margin-bottom: 5px;
   padding-right: 15px;
   padding-left: 3px;
 }
@@ -226,8 +227,20 @@ tooltip label{
   padding-left: 4px;
 }
 
-#cpu { color: @red; }
-#temperature { margin-left: 10px; color: @blue; }
-#disk { color: @green; margin-left: 10px; }
-#memory { color: @peach; }
-#pulseaudio { color: @green; }
+#cpu {
+  color: @red;
+}
+#temperature {
+  margin-left: 10px;
+  color: @blue;
+}
+#disk {
+  color: @green;
+  margin-left: 10px;
+}
+#memory {
+  color: @peach;
+}
+#pulseaudio {
+  color: @green;
+}

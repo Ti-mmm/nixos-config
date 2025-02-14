@@ -1,12 +1,12 @@
-{ pkgs, ... }: {
-
+{pkgs, ...}: {
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.hyprland;
     xwayland.enable = true;
   };
 
-  wayland.windowManager.hyprland.settings = { # this is hyprland.conf
+  wayland.windowManager.hyprland.settings = {
+    # this is hyprland.conf
 
     # Configure monitors
     monitor = [
@@ -26,7 +26,7 @@
     # Autostart apps and processes at launch
     exec-once = [
       "waybar"
-      "vesktop"
+      "discord"
       "swww-daemon"
       "fcitx5 -d -r"
       "dunst"
@@ -45,7 +45,6 @@
 
       # Use iGPU for Hyprland rendering and Nvidia card for games
       #"AQ_DRM_DEVICES,/dev/dri/card0:/dev/dri/card1"
-      
 
       # Nvidia envs
       #"LIBVA_DRIVER_NAME,nvidia"
@@ -69,7 +68,8 @@
       gaps_in = 3;
       gaps_out = 10;
       border_size = 2;
-      "col.active_border" = "rgba(24abffee) rgba(8863ffee) 45deg";
+      #"col.active_border" = "rgba(24abffee) rgba(8863ffee) 45deg";
+      "col.active_border" = "rgba(a6e3a1ee) rgba(94e2d5ee) 45deg"; # green -> teal
       "col.inactive_border" = "rgba(595959aa)";
       resize_on_border = false;
       allow_tearing = false;
@@ -88,7 +88,7 @@
       blur = {
         enabled = true;
         size = 8;
-        passes = 3;
+        passes = 2;
         vibrancy = "0.1696";
         noise = 0.01;
         contrast = 0.9;
@@ -100,7 +100,7 @@
       bezier = [
         "myBezier, 0.05, 0.9, 0.1, 1.05"
         #"easeOutCubic, 0.33, 1, 0.68, 1"
-      ]; 
+      ];
       animation = [
         "windows,1,7,myBezier"
         "windowsOut,1,7,default,popin 80%"
@@ -180,10 +180,12 @@
       "$mainMod SHIFT,right, resizeactive,  10 0"
     ];
     # Mouse binds
-    bindm =
-      [ "$mainMod, mouse:272, movewindow" "$mainMod, mouse:273, resizewindow" ];
+    bindm = ["$mainMod, mouse:272, movewindow" "$mainMod, mouse:273, resizewindow"];
 
-    windowrule = [ "pseudo, fcitx" ];
+    windowrule = [
+      "pseudo, fcitx"
+    ];
   };
 }
 # I hate my life
+

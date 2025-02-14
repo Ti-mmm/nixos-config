@@ -14,25 +14,23 @@ let
   #  package = pkgs.morewaita-icon-theme.overrideAttrs { src = inputs.morewaita; };
   #};
 in {
-
   catppuccin = {
     enable = true; # Use on any and all
     flavor = "mocha";
     accent = "mauve";
 
+    gtk.enable = true; # deprecated but still work
     rofi.enable = false;
-    hyprland.enable = false;
+    fcitx5.apply = true;
+    hyprland.enable = true;
     waybar.enable = false;
     btop.enable = false;
-    
   };
 
   home = {
-    # Catppuccin mocha mauve themes
-    file.".config/vesktop/themes/mocha-mauve.css".source = ./themes/vesktop.css;
-
-
-
+    # Discord and Vesktop
+    file.".config/vesktop/themes/mocha-mauve.css".source = ./vesktop.css;
+    file.".config/Vencord/themes/mocha-mauve.css".source = ./vesktop.css;
   
     packages = with pkgs; [
       cantarell-fonts
@@ -64,8 +62,6 @@ in {
     enable = true;
     platformTheme.name = "kvantum";
     style.name = "kvantum";
-    #style.package = pkgs.catppuccin-qt5ct;
-    
   };
 
 }

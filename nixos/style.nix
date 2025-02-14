@@ -10,8 +10,6 @@
     libsForQt5.breeze-gtk
     libsForQt5.lightly
     kdePackages.breeze
-    #catppuccin-kvantum
-    #catppuccin-qt5ct
   ];
 
   # Fonts

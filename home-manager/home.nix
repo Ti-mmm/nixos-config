@@ -9,11 +9,12 @@
     ./editor/helix.nix
     ./zsh.nix
     ./rofi.nix
-    ./theme.nix
+    ./theme/default.nix
     ./yazi/default.nix
     ./git.nix
     ./waybar.nix # Still need to set waybar.settings
     ./btop.nix
+    ./apps.nix
   ];
 
   home.username = "tim";
@@ -28,8 +29,6 @@
 
   home.sessionVariables = { EDITOR = "hx"; };
   home.shellAliases = { yz = "yazi"; };
-
-
 
 }
 

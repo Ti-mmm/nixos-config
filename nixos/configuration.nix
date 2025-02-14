@@ -23,9 +23,9 @@
     tmp.cleanOnBoot = true;
     supportedFilesystems = [ "ntfs" ];
     loader = {
+      systemd-boot.enable = true;
       timeout = 3;
       efi.canTouchEfiVariables = true;
-      systemd-boot.enable = true;
     };
     kernelPackages = pkgs.linuxPackages_zen;
   };
@@ -154,9 +154,6 @@
     #dolphin # File manager by KDE
     #nautilus # File manager by Gnome
     #superfile # fancy & modern terminal file manager
-    qFlipper
-    vesktop
-    discord
     arrpc # For rich presence in vesktop
 
     # Dowloading / Sending
@@ -192,6 +189,7 @@
     qt6ct
   ];
 
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -202,7 +200,12 @@
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedUDPPorts = [
+    # Valheim
+    2456
+    2457
+    2458
+  ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 

@@ -1,15 +1,20 @@
-Note: Everything here is WiP. I am new to NixOS, just exploring.
+Note: Everything here is WiP. This is not made to be used by someone else.
 
 # TODOs:
 
-- [ ] rice everything:
-  - [x] catppuccin-mocha-mauve theme
+- [ ] rice everything (catppuccin-mocha-mauve):
+  - [x] use catppuccin-mocha-mauve flake
   - [x] btop
-  - [ ] qt (catppuccin + lightly)
-  - [ ] transparency: kitty, vesktop, firefox
-  - [ ] hyprland: make inactive windows slightly transparent
-  - [ ] (optional) alternative hyprland animations
-- [ ] switch to grub
+  - [x] qt
+  - [x] gtk
+  - [ ] rofi
+  - [ ] waybar + new layout
+  - [ ] transparency:
+    - [x] kitty
+    - [ ] vesktop
+    - [ ] firefox
+  - [ ] OR: hyprland: make inactive windows slightly transparent
+  - [ ] style firefox websites like https://github.com/catppuccin/userstyles/blob/main/docs/USAGE.md
 - [ ] firefox settings in home-manager
 - [ ] modularize nixos-config (for multiple device setups)
 - [ ] ...
