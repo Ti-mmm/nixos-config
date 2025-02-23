@@ -19,7 +19,7 @@ in {
     flavor = "mocha";
     accent = "mauve";
 
-    gtk.enable = true; # deprecated but still work
+    gtk.enable = true; # deprecated but still works
     rofi.enable = false;
     fcitx5.apply = true;
     hyprland.enable = true;
@@ -57,7 +57,8 @@ in {
   fonts.fontconfig.enable = true;
 
   gtk.enable = true;
-
+  gtk.cursorTheme = cursorTheme;
+    
   qt = {
     enable = true;
     platformTheme.name = "kvantum";

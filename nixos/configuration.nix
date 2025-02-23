@@ -171,7 +171,9 @@
     openjdk
     prismlauncher
     libreoffice-qt
+    davinci-resolve
     # solaar # Mouse - doesn't work with Logitech
+    openrgb
     noip
     qmk # crkbd
     blueberry # GUI bluetooth

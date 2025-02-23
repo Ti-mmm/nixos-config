@@ -13,11 +13,11 @@
     swww
     hyprcursor
     waybar
+    waybar-mpris
     kitty
     dunst
     flameshot
     libnotify
-    rofi-wayland
     rofi-emoji-wayland
     hyprpolkitagent
     hyprshot

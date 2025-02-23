@@ -1,10 +1,11 @@
 { pkgs, ... }: {
   programs.rofi = {
     enable = true;
+    package = pkgs.rofi-wayland;
     plugins = [ pkgs.rofi-emoji ];
     font = "JetBrainsMono Nerd Font 14";
     terminal = "kitty";
-    location = "top";
+    location = "center";
     extraConfig = {
       #location = "top";
       modi = "drun,emoji";
@@ -15,7 +16,7 @@
       display-drun = " Apps ";
       display-emoji = "Emoji";
       # sidebar-mode = true;
-      yoffset = 40;
+      # yoffset = 40;
       border-radius = 10;
     };
     theme = "~/.config/rofi/themes/mocha.rasi";

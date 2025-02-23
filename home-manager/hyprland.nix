@@ -22,6 +22,12 @@
     "$emoji" = "rofi -show emoji -show-icons";
     # Blur for waybar
     blurls = "waybar";
+    layerrule = [
+      "blur,waybar"
+      "blur,rofi"
+      "ignorezero,waybar"
+      "ignorealpha 0.5,waybar"
+    ];
 
     # Autostart apps and processes at launch
     exec-once = [
@@ -79,6 +85,7 @@
       rounding = 10;
       active_opacity = 1;
       inactive_opacity = 1;
+      fullscreen_opacity = 1;
       shadow = {
         enabled = true;
         range = 4;
@@ -87,12 +94,14 @@
       };
       blur = {
         enabled = true;
-        size = 8;
-        passes = 2;
+        size = 3;
+        passes = 5;
         vibrancy = "0.1696";
         noise = 0.01;
         contrast = 0.9;
         brightness = 0.8;
+        new_optimizations = true;
+        ignore_opacity = true;
       };
     };
     animations = {
