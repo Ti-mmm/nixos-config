@@ -12,7 +12,7 @@
     ./theme/default.nix
     ./yazi/default.nix
     ./git.nix
-    ./waybar.nix # Still need to set waybar.settings
+    ./waybar/default.nix
     ./btop.nix
     ./apps.nix
   ];

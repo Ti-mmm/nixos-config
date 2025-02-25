@@ -3,6 +3,7 @@
 @define-color bg_main rgba(25, 25, 25, 0.5);
 @define-color bg_main_tooltip rgba(0, 0, 0, 0.5);
 
+@define-color base_trans rgba(30, 30, 46, 0.5);
 /*base background color of selections */
 @define-color bg_hover rgba(200, 200, 200, 0.5);
 /*base background color of active elements */
@@ -28,12 +29,12 @@
 }
 
 window#waybar {
-  background: @base;
+  background: rgba(30, 30, 46, 0.5);
   border-bottom: 1.5px solid @mauve;
   color: #ffffff;
 }
 tooltip {
-  background: alpha(@base, 0.2);
+  background: rgba(30, 30, 46, 0.5);
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
@@ -48,8 +49,8 @@ tooltip label {
 }
 
 #workspaces {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 #workspaces button.active {
@@ -58,11 +59,6 @@ tooltip label {
 
 #workspaces button {
   color: @text;
-}
-
-#custom-separator_dot,
-#custom-separator {
-  color: @green;
 }
 
 #clock {
@@ -105,65 +101,12 @@ tooltip label {
   color: @teal;
 }
 
-#idle_inhibitor {
-  margin-right: 2px;
-}
-
-#idle_inhibitor.deactivated {
-  color: @subtext0;
-}
-
 #custom-dunst.off {
-  color: @subtext0;
-}
-
-#custom-airplane_mode {
-  margin-right: 2px;
-}
-
-#custom-airplane_mode.off {
-  color: @subtext0;
-}
-
-#custom-night_mode {
-  margin-right: 2px;
-}
-
-#custom-night_mode.off {
   color: @subtext0;
 }
 
 #custom-dunst {
   margin-right: 2px;
-}
-
-#custom-media.Paused {
-  color: @subtext0;
-}
-
-#custom-webcam {
-  color: @maroon;
-  margin-right: 3px;
-}
-
-#privacy-item.screenshare {
-  color: @peach;
-  margin-right: 5px;
-}
-
-#privacy-item.audio-in {
-  color: @pink;
-  margin-right: 4px;
-}
-
-#custom-recording {
-  color: @red;
-  margin-right: 4px;
-}
-
-#custom-geo {
-  color: @yellow;
-  margin-right: 4px;
 }
 
 #taskbar {
