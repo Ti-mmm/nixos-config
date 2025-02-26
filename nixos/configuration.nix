@@ -144,17 +144,16 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wget
+    # wget
     yazi
-    zoxide
+    # zoxide
     helix
     neofetch
     obsidian
     pavucontrol # Audio Controls (graphical)
-    #dolphin # File manager by KDE
     #nautilus # File manager by Gnome
     #superfile # fancy & modern terminal file manager
-    arrpc # For rich presence in vesktop
+    # arrpc # For rich presence in vesktop
 
     # Dowloading / Sending
     ani-cli
@@ -162,33 +161,27 @@
     localsend
     
     obs-studio
-    gcc
-    rustup
-    rustc
-    docker
-    gwe
+    # gcc
+    # rustup
+    # rustc
+    # docker
+    # gwe
     anki
     openjdk
     prismlauncher
-    libreoffice-qt
-    davinci-resolve
+    libreoffice
     # solaar # Mouse - doesn't work with Logitech
-    openrgb
     noip
     qmk # crkbd
     blueberry # GUI bluetooth
-    htop
     btop
     mpv
     # trying to get epic working on wayland:
     mozc
 
-    dolphin
-    plasma-workspace
-    kde-cli-tools
-    udisks2
-    libsForQt5.qt5ct
-    qt6ct
+    kdePackages.dolphin # File manager by KDE
+    # libsForQt5.qt5ct
+    # qt6ct
   ];
 
 

@@ -29,18 +29,18 @@ in {
 
   home = {
     # Discord and Vesktop
-    file.".config/vesktop/themes/mocha-mauve.css".source = ./vesktop.css;
-    file.".config/Vencord/themes/mocha-mauve.css".source = ./vesktop.css;
+    file.".config/vesktop/themes/mocha-mauve.css".source = ./discord.css;
+    file.".config/Vencord/themes/mocha-mauve.css".source = ./discord.css;
   
-    packages = with pkgs; [
-      cantarell-fonts
-      font-awesome
+    packages = [
+      # cantarell-fonts
+      # font-awesome
       font.package
       cursorTheme.package
-      adwaita-icon-theme
-      papirus-icon-theme
-      nerd-fonts.jetbrains-mono
-      nerd-fonts.ubuntu-mono
+      # adwaita-icon-theme
+      # papirus-icon-theme
+      # nerd-fonts.jetbrains-mono
+      # nerd-fonts.ubuntu-mono
       
     ];
 
@@ -51,10 +51,9 @@ in {
     pointerCursor =
       cursorTheme
       // { gtk.enable = true; };
-
   };
   
-  fonts.fontconfig.enable = true;
+  # fonts.fontconfig.enable = true;
 
   gtk.enable = true;
   gtk.cursorTheme = cursorTheme;

@@ -4,6 +4,7 @@
     package = pkgs.hyprland;
     xwayland.enable = true;
   };
+  programs.kitty.enable = true;
 
   wayland.windowManager.hyprland.settings = {
     # this is hyprland.conf

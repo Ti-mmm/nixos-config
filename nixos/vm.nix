@@ -1,13 +1,18 @@
 { pkgs, lib, config, ... }: {
-  # Enable dconf (System Management Toll)
-  programs.dconf.enable = true;
+  # IMPORTANT: `virsh net-autostart default` enables the default network
+  programs = {
+    # Enable dconf (System Management Tool)
+    dconf.enable = true;
+    virt-manager.enable = true;
+  };
+
+  users.groups.libvirtd.members = [ "tim" ];
+  users.users.tim.extraGroups = [ "libvirtd" ];
 
   # Install necessary packages
   environment.systemPackages = with pkgs; [
     #qemu
     #qemu_kvm
-    virt-manager
-    virt-viewer
     spice
     spice-gtk
     spice-protocol

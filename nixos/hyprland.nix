@@ -1,11 +1,11 @@
 { config, pkgs, ... }:
 
 {
-  programs.hyprland = {
-    enable = true;
-    package = pkgs.hyprland;
-    xwayland.enable = true;
-  };
+  # programs.hyprland = {
+  #   enable = true;
+  #   package = pkgs.hyprland;
+  #   xwayland.enable = true;
+  # };
 
   services.displayManager.ly.enable = true;
 
@@ -13,23 +13,15 @@
     swww
     hyprcursor
     waybar
-    waybar-mpris
-    kitty
+    # waybar-mpris
     dunst
     flameshot
     libnotify
     rofi-emoji-wayland
     hyprpolkitagent
-    hyprshot
     wl-clipboard
-    wtype
   ];
 
-  #environment.variables = {
-  #  XCURSOR_THEME = "Bibata-Modern-Ice";
-  #  XCURSOR_SIZE = "24";
-  #};
-
-  # Enable Sceensharing
+  # Enables Sceensharing
   services.dbus.enable = true;
 }

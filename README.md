@@ -7,13 +7,12 @@ Note: Everything here is WiP. This is not made to be used by someone else.
   - [x] btop
   - [x] qt
   - [x] gtk
-  - [ ] rofi
-  - [ ] waybar + new layout
+  - [x] rofi
+  - [x] waybar + new layout
   - [ ] transparency:
     - [x] kitty
     - [ ] vesktop
     - [ ] firefox
-  - [ ] OR: hyprland: make inactive windows slightly transparent
   - [ ] style firefox websites like https://github.com/catppuccin/userstyles/blob/main/docs/USAGE.md
 - [ ] firefox settings in home-manager
 - [ ] modularize nixos-config (for multiple device setups)

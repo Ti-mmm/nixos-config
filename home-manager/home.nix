@@ -2,6 +2,9 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  # Disable version mismatch error message
+  home.enableNixpkgsReleaseCheck = false;
   
   imports = [ # App configurations
     ./hyprland.nix
@@ -15,6 +18,7 @@
     ./waybar/default.nix
     ./btop.nix
     ./apps.nix
+    ./vm.nix
   ];
 
   home.username = "tim";
