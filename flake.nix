@@ -1,7 +1,5 @@
 {
-  description =
-    "Ti-mmm's personal flake configuration! Has secure boot enabled.";
-
+  description = "Ti-mmm's personal flake configuration! Has secure boot enabled.";
 
   inputs = {
     # === NixOS and HM sources ===
@@ -11,7 +9,7 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     hardware.url = "github:nixos/nixos-hardware";
-   
+
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,7 +27,16 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, catppuccin, lanzaboote, ... }@inputs: {
+  outputs = {
+    self,
+    nixpkgs,
+    nixpkgs-stable,
+    nixpkgs-unstable,
+    home-manager,
+    catppuccin,
+    lanzaboote,
+    ...
+  } @ inputs: {
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
@@ -40,8 +47,12 @@
         modules = [
           # Secure boot
           lanzaboote.nixosModules.lanzaboote
-          ({ pkgs, lib, ... }: {
-            environment.systemPackages = [ pkgs.sbctl ];
+          ({
+            pkgs,
+            lib,
+            ...
+          }: {
+            environment.systemPackages = [pkgs.sbctl];
             # Lanzaboote currently replaces the systemd-boot module.
             # This setting is usually set to true in configuration.nix
             # generated at installation time. So we force it to false
@@ -52,7 +63,6 @@
               pkiBundle = "/etc/secureboot";
             };
           })
-
           # NixOS Config
           ./nixos/configuration.nix
         ];

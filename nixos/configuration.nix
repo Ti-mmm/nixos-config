@@ -12,7 +12,7 @@
     ./style.nix
 
     ./nvidia.nix
-    ./games.nix
+    ./gaming.nix
     ./plasma5.nix
     ./hyprland.nix
     ./vm.nix
@@ -152,8 +152,7 @@
     obsidian
     pavucontrol # Audio Controls (graphical)
     #nautilus # File manager by Gnome
-    #superfile # fancy & modern terminal file manager
-    # arrpc # For rich presence in vesktop
+    arrpc # For rich presence in vesktop
 
     # Dowloading / Sending
     ani-cli
@@ -194,7 +193,17 @@
   #};
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [
+    # Valheim (potentially not needed)
+    2456
+    2457
+    2458
+    # Minecraft
+    25565
+    25566
+    # LocalSend
+    53317
+  ];
   networking.firewall.allowedUDPPorts = [
     # Valheim
     2456
@@ -203,6 +212,8 @@
     # Minecraft
     25565
     25566
+    # LocalSend
+    53317
   ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;

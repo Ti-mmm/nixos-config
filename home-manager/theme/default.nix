@@ -25,21 +25,26 @@ in {
     hyprland.enable = true;
     waybar.enable = false;
     btop.enable = false;
+    dunst.enable = false;
   };
+
+  imports = [
+    ./dunst.nix
+  ];
 
   home = {
     # Discord and Vesktop
     file.".config/vesktop/themes/mocha-mauve.css".source = ./discord.css;
     file.".config/Vencord/themes/mocha-mauve.css".source = ./discord.css;
   
-    packages = [
+    packages = with pkgs; [
       # cantarell-fonts
-      # font-awesome
+      font-awesome
       font.package
       cursorTheme.package
-      # adwaita-icon-theme
-      # papirus-icon-theme
-      # nerd-fonts.jetbrains-mono
+      adwaita-icon-theme
+      papirus-icon-theme
+      nerd-fonts.jetbrains-mono
       # nerd-fonts.ubuntu-mono
       
     ];

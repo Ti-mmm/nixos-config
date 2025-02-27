@@ -1,10 +1,16 @@
 {pkgs, ...}: {
+  # Terminal
+  programs.kitty.enable = true;
+
+  # Notification daemon
+  services.dunst.enable = true;
+
+  # Hyprland
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.hyprland;
     xwayland.enable = true;
   };
-  programs.kitty.enable = true;
 
   wayland.windowManager.hyprland.settings = {
     # this is hyprland.conf
@@ -28,17 +34,18 @@
       "blur,rofi"
       "ignorezero,waybar"
       "ignorealpha 0.5,waybar"
+      "blur, dunst"
     ];
 
     # Autostart apps and processes at launch
     exec-once = [
       "waybar"
-      "discord"
+      # "discord"
       "swww-daemon"
       "fcitx5 -d -r"
-      "dunst"
-      "steam"
-      "firefox"
+      # "dunst"
+      # "steam"
+      # "firefox"
     ];
 
     env = [
@@ -47,8 +54,13 @@
       #"HYPRCURSOR_SIZE,24"
       #"HYPRCURSOR_THEME,Bibata-Modern-Ice"
       #  "WLR_DRM_NO_ATOMIC,1"
-      #"QT_QPA_PLATFORM,wayland"
+      "QT_QPA_PLATFORM,wayland"
       "QT_QPA_PLATFORMTHEME,qt6ct"
+
+      "NIXOS_OZONE_WL, 1" # for ozone-based and electron apps to run on wayland
+      "MOZ_ENABLE_WAYLAND, 1" # for firefox to run on wayland
+      "MOZ_WEBRENDER, 1" # for firefox to run on wayland
+      
 
       # Use iGPU for Hyprland rendering and Nvidia card for games
       #"AQ_DRM_DEVICES,/dev/dri/card0:/dev/dri/card1"
@@ -96,7 +108,7 @@
       blur = {
         enabled = true;
         size = 3;
-        passes = 5;
+        passes = 4;
         vibrancy = "0.1696";
         noise = 0.01;
         contrast = 0.9;

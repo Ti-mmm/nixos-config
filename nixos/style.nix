@@ -6,11 +6,11 @@
     adwaita-icon-theme # vm.nix
     qogir-icon-theme
     # bibata-cursors # Hyprcursor cursor theme
-    # libsForQt5.breeze-icons
+    libsForQt5.breeze-icons
     # libsForQt5.breeze-qt5
     # libsForQt5.breeze-gtk
     # libsForQt5.lightly
-    # kdePackages.breeze
+    kdePackages.breeze
   ];
 
   # Fonts

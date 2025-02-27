@@ -1,11 +1,11 @@
 { config, pkgs, ... }:
 
 {
-  # programs.hyprland = {
-  #   enable = true;
-  #   package = pkgs.hyprland;
-  #   xwayland.enable = true;
-  # };
+  programs.hyprland = {
+    enable = true;
+    package = pkgs.hyprland;
+    xwayland.enable = true;
+  };
 
   services.displayManager.ly.enable = true;
 
@@ -14,7 +14,6 @@
     hyprcursor
     waybar
     # waybar-mpris
-    dunst
     flameshot
     libnotify
     rofi-emoji-wayland
