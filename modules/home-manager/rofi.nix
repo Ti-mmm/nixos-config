@@ -2,7 +2,7 @@
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
-    plugins = [ pkgs.rofi-emoji ];
+    plugins = [ pkgs.rofi-emoji-wayland ];
     font = "JetBrainsMono Nerd Font 14";
     terminal = "kitty";
     location = "center";

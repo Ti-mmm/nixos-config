@@ -5,6 +5,8 @@
     enable = true;
     extraPackages = with pkgs; [
       markdown-oxide
+      marksman
+      dprint
       nodePackages.vscode-langservers-extracted
       shellcheck
     ];

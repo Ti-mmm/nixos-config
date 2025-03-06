@@ -26,6 +26,7 @@ in {
     waybar.enable = false;
     btop.enable = false;
     dunst.enable = false;
+    starship.enable = true;
   };
 
   imports = [

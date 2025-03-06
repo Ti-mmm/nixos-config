@@ -5,5 +5,6 @@
       withVencord  = true;
     })
     vesktop
+    arrpc # rich presence
   ];
 }

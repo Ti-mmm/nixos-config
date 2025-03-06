@@ -5,6 +5,8 @@
   # Notification daemon
   services.dunst.enable = true;
 
+  home.packages = with pkgs; [ hyprshot ];
+
   # Hyprland
   wayland.windowManager.hyprland = {
     enable = true;
@@ -24,7 +26,7 @@
 
     # Set used programs
     "$terminal" = "kitty";
-    "$fileManager" = "dolphin";
+    "$fileManager" = "thunar";
     "$menu" = "rofi -show drun -show-icons";
     "$emoji" = "rofi -show emoji -show-icons";
     # Blur for waybar
@@ -34,7 +36,7 @@
       "blur,rofi"
       "ignorezero,waybar"
       "ignorealpha 0.5,waybar"
-      "blur, dunst"
+      "blur,dunst"
     ];
 
     # Autostart apps and processes at launch
@@ -44,8 +46,8 @@
       "swww-daemon"
       "fcitx5 -d -r"
       # "dunst"
-      # "steam"
-      # "firefox"
+      "steam"
+      "firefox"
     ];
 
     env = [
@@ -61,7 +63,6 @@
       "MOZ_ENABLE_WAYLAND, 1" # for firefox to run on wayland
       "MOZ_WEBRENDER, 1" # for firefox to run on wayland
       
-
       # Use iGPU for Hyprland rendering and Nvidia card for games
       #"AQ_DRM_DEVICES,/dev/dri/card0:/dev/dri/card1"
 
@@ -108,7 +109,7 @@
       blur = {
         enabled = true;
         size = 3;
-        passes = 4;
+        passes = 5;
         vibrancy = "0.1696";
         noise = 0.01;
         contrast = 0.9;

@@ -5,17 +5,19 @@
 { pkgs, lib, inputs, ... }:
 
 {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
     ./hardware-configuration.nix
-    ./fileSystems.nix
-    ./services.nix
-    ./style.nix
+    ./mounts.nix
 
-    ./nvidia.nix
-    ./gaming.nix
-    ./plasma5.nix
-    ./hyprland.nix
-    ./vm.nix
+    # Modules
+    ../../modules/nixos/lanzaboote.nix
+    ../../modules/nixos/nvidia.nix
+    ../../modules/nixos/gaming.nix
+    ../../modules/nixos/services.nix
+    ../../modules/nixos/vm.nix
+    ../../modules/nixos/hyprland.nix
+    ../../modules/nixos/fonts.nix
+    # ../../modules/nixos/plasma6.nix
   ];
 
   # Bootloader.
@@ -32,7 +34,7 @@
 
   swapDevices = [{
     device = "/var/lib/swapfile";
-    size = 32 * 1024; # 32GiB
+    size = 8 * 1024; # 32GiB
   }];
 
   powerManagement.cpuFreqGovernor = "performance";
@@ -62,9 +64,9 @@
     flags = [
       "--update-input"
       "nixpkgs"
-      "-L" # print build logs
+      # "-L" # print build logs
     ];
-    dates = "weekly";
+    dates = "monthly";
   };
 
   # Enable networking
@@ -114,20 +116,11 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-  # services.xserver.excludePackages = [ pkgs.xterm ];
-  # Configure keymap in X11
-  # services.xserver.xkb = {
-  #  layout = "us";
-  #  variant = "intl";
-  #  options = "grp:win_space_toggle";
-  #};
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.tim = {
     isNormalUser = true;
     description = "Tim Weissflog";
+    initialPassword = "1234";
     extraGroups = [ "networkmanager" "wheel" "video" "libvirtd" ];
     # packages = with pkgs; [ kate ];
     shell = pkgs.zsh;
@@ -145,14 +138,14 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # wget
-    yazi
+    # yazi
     # zoxide
-    helix
+    # helix
     neofetch
     obsidian
     pavucontrol # Audio Controls (graphical)
     #nautilus # File manager by Gnome
-    arrpc # For rich presence in vesktop
+    # arrpc # For rich presence in vesktop
 
     # Dowloading / Sending
     ani-cli
@@ -176,11 +169,11 @@
     btop
     mpv
     # trying to get epic working on wayland:
-    mozc
 
-    kdePackages.dolphin # File manager by KDE
-    # libsForQt5.qt5ct
-    # qt6ct
+    # kdePackages.dolphin # File manager by KDE
+    xfce.thunar
+    libsForQt5.qt5ct
+    qt6ct
   ];
 
 

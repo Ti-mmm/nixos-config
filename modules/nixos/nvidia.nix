@@ -13,7 +13,7 @@
     powerManagement.finegrained = false;
     open = true;
     nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.beta; # or stable
+    package = config.boot.kernelPackages.nvidiaPackages.beta; # stable|beta|vulkan_beta
     # vulkan_beta
     prime = {
       sync.enable = false;

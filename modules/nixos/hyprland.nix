@@ -8,17 +8,18 @@
   };
 
   services.displayManager.ly.enable = true;
+  # services.displayManager.autoLogin.enable = true;
+  # services.displayManager.autoLogin.user = "tim";
 
   environment.systemPackages = with pkgs; [
     swww
-    hyprcursor
+    # hyprcursor
     waybar
     # waybar-mpris
     flameshot
     libnotify
-    rofi-emoji-wayland
     hyprpolkitagent
-    wl-clipboard
+    # wl-clipboard
   ];
 
   # Enables Sceensharing

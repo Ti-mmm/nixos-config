@@ -18,6 +18,9 @@ Note: Everything here is WiP. This is not made to be used by someone else.
 - [ ] modularize nixos-config (for multiple device setups)
 - [ ] ...
 
+More stuff:
+- try nnn (file manager)
+
 ## Commands
 
 Compile using:
